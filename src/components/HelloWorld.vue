@@ -1,13 +1,11 @@
 <template>
   <div class="hello">
-    <h1>{{ message }}</h1>
-    <p>
-      For a guide and recipes on how to configure / customize this project,<br>
-      check out the jgcjgcjhckhjv,jvh
-      <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
-    </p>
-    <h3>Installed CLI Plugins</h3>
-  </div>
+    <input type="text" v-model="form.name" />
+    <input type="text" v-model="form.email" />
+    <input type="text" v-model="form.pass" />
+    <input type="text" v-model="form.confirmPass" />
+    <button @click="submit">submit</button>
+</div>
 </template>
 
 <script>
@@ -19,15 +17,24 @@ export default {
   data() {
     return {
       message: 'This is mustache syntax',
-      arr1: [],
-      obj: {}
+      showParagraph: false,
+      i: 20,
+      arr1:[1,2, 3,  4, 5, 6, 7, 8, 9],
+      form:{
+        name: '',
+        email: '',
+        pass: '',
+        confirmPass: ''
+      },
     }
   },
   computed: {
 
   },
   methods: {
-
+    submit() {
+      console.log(this.form);
+    }
   },
   created() {
 
@@ -36,9 +43,9 @@ export default {
 
   },
   updated() {
-    
+    console.log(this.inputValue)
   },
-  destroyed() {
+  unmounted() {
     
   },
 }
@@ -46,6 +53,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.hello {
+  display:block;
+}
 h3 {
   margin: 40px 0 0;
 }
